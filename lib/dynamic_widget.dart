@@ -173,12 +173,13 @@ class DynamicWidgetBuilder {
   }
 
   static WidgetParser? _findMatchedWidgetParserForExport(Widget? widget) {
+    var parserFound;
     for (var parser in _parsers) {
       if (parser.matchWidgetForExport(widget)) {
-        return parser;
+        parserFound = parser;
       }
     }
-    return null;
+    return parserFound;
   }
 }
 
